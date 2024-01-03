@@ -20,12 +20,4 @@ public class Produttore{
         info += "\tpartita iva:\t" + partitaIva + "\n";
         return info;
     }
-
-    public boolean equals(Produttore p) {
-        if(this.nome != p.nome) return false;
-        if(this.sedeLegale != p.sedeLegale) return false;
-        if(this.nazionale != p.nazionale) return false;
-        if(this.partitaIva != p.partitaIva) return false;
-        return true;
-    }
 }
