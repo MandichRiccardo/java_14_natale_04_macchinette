@@ -7,6 +7,26 @@ public class Distributore{
     private Snack[] prodotti;
     private Snack[] prodottiMancanti;
 
+    public Distributore(String luogo, int articoliTotali, int piano, boolean daResto) {
+        this.luogo = luogo;
+        if(articoliTotali%5==0){
+            this.articoliTotali = articoliTotali;
+            this.prodotti = new Snack[articoliTotali];
+            this.prodottiMancanti = new Snack[articoliTotali/5];
+        }else System.out.println("questo valore non è accettabile per il numero di articoli totali, di conseguenza non lo ho inserito e quindi non ho potuto creare i due array");
+        articoliPresenti = 0;
+        this.piano = piano;
+        this.daResto = daResto;
+    }
+
+    public void setArticoliTotali(int articoliTotali) {
+        if(prodotti == null){
+            this.articoliTotali = articoliTotali;
+            this.prodotti = new Snack[articoliTotali];
+            this.prodottiMancanti = new Snack[articoliTotali/5];
+        }
+    }
+
     public void caricaDistributore(Snack s){
         int i=0;
         int presenti=0;
@@ -19,7 +39,10 @@ public class Distributore{
         if(presenti<5){
             i=0;
             while (i<prodotti.length && prodotti[i]!=null) i++;
-            if(prodotti[i] == null) prodotti[i] = s;
+            if(prodotti[i] == null){
+                prodotti[i] = s;
+                articoliPresenti++;
+            }
         }
     }
 
@@ -28,6 +51,7 @@ public class Distributore{
         while(i<prodotti.length && !prodotti[i].equals(s)) i++;
         if(i< prodotti.length){
             prodotti[i] = null;
+            articoliPresenti--;
             int j=0;
             boolean finito = true;
             while(j<prodotti.length){
@@ -50,8 +74,16 @@ public class Distributore{
         info += "piano:\t" + piano + "\n";
         if(!daResto) info += "non ";
         info += "da resto\n";
-        for(Snack articolo:prodotti) info = info.concat(articolo.toString());
-        for(Snack articolo:prodottiMancanti) info = info.concat(articolo.toString());
+        info += "prodotti:\n";
+        for(Snack articolo:prodotti){
+            if(articolo!=null) info = info.concat(articolo.toString());
+            else info = info.concat("\tquesto snack deve ancora essere inserito\n");
+        }
+        info += "prodotti mancanti:\n";
+        for(Snack articolo:prodottiMancanti){
+            if(articolo!=null) info = info.concat(articolo.toString());
+            else info = info.concat("\tquesto snack deve ancora essere inserito\n");
+        }
         return info;
     }
 }

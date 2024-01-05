@@ -12,14 +12,14 @@ public class Snack{
         this.peso = peso;
         this.kcalTot = kcalTot;
     }
-    public String toString(){
+    public String toString() {
         String info = "";
         info += "\tproduttore:\n" + produttore;
         info += "\tnome:\t" + nome + "\n";
         info += "\ttipologia:\t" + tipologia + "\n";
         info += "\tpeso in gr:\t" + peso + "\n";
         info += "\tkcal totali:\t" + kcalTot + "\n";
-        return info;
+        return info + "\n";
     }
 
     public boolean equals(Snack s) {
