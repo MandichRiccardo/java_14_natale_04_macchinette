@@ -43,6 +43,8 @@ public class Distributore{
                 prodotti[i] = s;
                 articoliPresenti++;
             }
+        }else{
+            System.out.println("erano già presenti cinque articoli di questo snack");
         }
     }
 

@@ -13,7 +13,7 @@ public class Produttore{
 
     public String toString(){
         String info = "";
-        info += "\t\tnome:\t" + nome + "\n";
+        info += "\t\tnome:\t\t\t" + nome + "\n";
         info += "\t\tsede legale:\t" + sedeLegale + "\n";
         if(nazionale) info += "\t\toperano in tutta italia\n";
         else info += "\t\toperano solo nella zona locale\n";

@@ -15,10 +15,10 @@ public class Snack{
     public String toString() {
         String info = "";
         info += "\tproduttore:\n" + produttore;
-        info += "\tnome:\t" + nome + "\n";
-        info += "\ttipologia:\t" + tipologia + "\n";
-        info += "\tpeso in gr:\t" + peso + "\n";
-        info += "\tkcal totali:\t" + kcalTot + "\n";
+        info += "\tnome:\t\t\t\t" + nome + "\n";
+        info += "\ttipologia:\t\t\t" + tipologia + "\n";
+        info += "\tpeso in gr:\t\t\t" + peso + "\n";
+        info += "\tkcal totali:\t\t" + kcalTot + "\n";
         return info + "\n";
     }
 
