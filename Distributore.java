@@ -50,14 +50,16 @@ public class Distributore{
 
     public void selezioneSnack(Snack s){
         int i=0;
-        while(i<prodotti.length && !prodotti[i].equals(s)) i++;
+        while(i<prodotti.length && (prodotti[i] == null || !prodotti[i].equals(s))) i++;
         if(i< prodotti.length){
             prodotti[i] = null;
             articoliPresenti--;
             int j=0;
             boolean finito = true;
             while(j<prodotti.length){
-                if(prodotti[j].equals(s)) finito = false;
+                if(prodotti[j]!=null) {
+                    if (prodotti[j].equals(s)) finito = false;
+                }
                 j++;
             }
             if(finito){
